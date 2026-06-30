@@ -191,7 +191,7 @@ for i,d in trips.items():
     print(f"location:{d['pickup']}-->{d['drop'][2]}")
 '''
 
-
+'''
 # Student using list
 details=[]
 while True:
@@ -225,3 +225,139 @@ while True:
         break
     else:
         print("Invalid option")
+
+
+
+names=[]
+marks=[]
+while True:
+    print("1.student name\n2.view student\n3.search student\n4.Exit")
+    choice=int(input("Enter the Option:"))
+
+    if choice==1:
+        names.append(input("Enter the student name:"))
+        marks.append(int(input("Enter the Mark:")))
+    elif choice==2:
+        if len(names) == 0:
+            print("No records")
+        else:
+            for i in range(len(names)):
+                print(f'{names[i]}-{marks[i]}')
+    elif choice==3:
+        ind=input("Enter the name")
+        if ind in names:
+            print(f'{ind}-{marks[names.index(ind)]}')
+        else:
+            print("Search not Found")
+    elif choice==4:
+        print("Thank You")
+        break
+    else:
+        print("Choose the correct  option")
+'''
+
+
+'''
+marks=[]
+while True:
+    print("1.Add mark\n2.view mark\n3.Count pass\n4.Count Fail\n5.Show Average\n6.Exit")
+    choice=int(input("Enter the Option:"))
+    if choice == 1:
+        marks.append(int(input("Enter the Mark:")))
+    elif choice == 2:
+        if len(marks) == 0:
+            print("No records")
+        else:
+                print(f'Marks List:{marks}')
+    elif choice==3:
+        count=0
+        for i in marks:
+            if i>=35:
+                count=count+1
+        print("No of passes:",count)
+    elif choice == 4:
+        count=0
+        for i in marks:
+            if i < 35:
+                count = count + 1
+        print("No of fails:", count)
+    elif choice==5:
+        sum=0
+        for i in marks:
+            sum=sum+i
+        print(f"Average is{sum/len(marks)}")
+    elif choice==6:
+        print("Thank You")
+        break
+    else:
+        print("Choose the valid option")
+
+
+names=[]
+numbers=[]
+while True:
+    print("1.Add number\n2.view numbers\n3.search number\n4.delete number\n5.Exit")
+    choice=int(input("Enter the Option:"))
+    if choice == 1:
+        names.append(input("Enter the student name:"))
+        numbers.append(int(input("Enter the Number:")))
+    elif choice == 2:
+        if len(numbers) == 0:
+            print("No records")
+        else:
+            for i in range(len(names)):
+                print(f'{names[i]}-{numbers[i]}')
+    elif choice == 3:
+        ind = input("Enter the name")
+        if ind in names:
+            print(f'{ind}-{numbers[names.index(ind)]}')
+        else:
+            print("Search not Found")
+    elif choice == 4:
+        ind = input("Enter the name")
+        if ind in names:
+            numbers.remove(numbers[names.index(ind)])
+            names.remove(ind)
+            print("Deleted Successfully")
+        else:
+            print("Search not Found")
+    elif choice==5:
+        print("Thank You")
+        break
+    else:
+        print("Choose the valid option")
+
+'''
+
+dict={}
+while True:
+    print("1.Add number\n2.view numbers\n3.search number\n4.delete number\n5.Exit")
+    choice=int(input("Enter the Option:"))
+    if choice == 1:
+        names=input("Enter the student name:")
+        numbers=int(input("Enter the Number:"))
+        dict[names]=numbers
+    elif choice == 2:
+        if len(dict) == 0:
+            print("No records")
+        else:
+            for k,v in dict.items():
+                print(f'{k}:{v}')
+    elif choice == 3:
+        ind = input("Enter the name")
+        if ind in dict:
+            print(f'{dict.get(ind)}')
+        else:
+            print("Search not Found")
+    elif choice == 4:
+        ind = input("Enter the name")
+        if ind in dict:
+            dict.pop(ind)
+            print("Deleted Successfully")
+        else:
+            print("Search not Found")
+    elif choice==5:
+        print("Thank You")
+        break
+    else:
+        print("Choose the valid option")
