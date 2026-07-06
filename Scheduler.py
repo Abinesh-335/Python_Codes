@@ -1,9 +1,6 @@
 # NOTE: Run this program via terminal run/f5 not work (python3 file_name.py argv1 argv2 argv3...)
 
 import sys
-
-from pkg_resources import file_ns_handler
-
 #check number of arguments
 if len(sys.argv)==2:
     print("The Argument is not enough")
