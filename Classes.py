@@ -17,32 +17,103 @@ blueprint.Each instance can have its own values for the attributes defined in th
 class.'''
 
 '''
-class sample:
-    def __init__(abi,name,reg):
-        abi.n=name
-        abi.r=reg
+class Sample:
+    def __init__(self,name,age,mark):
+        self.name=name
+        self.age=age
+        self.mark=mark
 
-    def prints(guna):
-        print(f"{guna.n} is {guna.r}")
+    def show(self):
+        print(f"Name:{self.name}\nAge:{self.age}\nMark:{self.mark}")
 
-s=sample('Abinesh',2021)
-s.prints()
+    def result(self):
+        if self.mark>=35:
+            print("Result:Pass")
+        else:
+            print("Result:Fail")
 
+s1=Sample('Vinoth',20,60)
+s2=Sample('Sam',21,63)
+s1.show()
+s1.result()
+s2.result()
+s2.show()
 '''
 
 
-'''
-class diff():
-    def sum(s,a,b):
-        return a-b
 
-s=diff()
-print(s.sum(20,10))
+
+
 '''
 
-'''“Abstraction is the process of hiding implementation details and showing only
-the essential features of an object.”
+class Rectangle:
+    def __init__(self,length,width):
+        self.length=length
+        self.width=width
+    def area(self):
+        return self.length*self.width
+    def is_square(self):
+        return self.length==self.width
+
+obj1=Rectangle(40,40)
+print(obj1.area())
+print(f"Is it Square:{obj1.is_square()}")
+
 '''
+
+#Bank Account Details
+class BankAccount:
+    def __init__(self,acc_holder,avl_bal):
+        self.acc_holder=acc_holder
+        self.avl_bal=avl_bal
+
+    def deposit(self,amt):
+        if (amt>0):
+            self.avl_bal+=amt
+            return "Deposit Successful"
+        else:
+            return "invalid Amount"
+
+    def withdraw(self,amt):
+        if amt>0:
+            if amt<self.avl_bal:
+                check_min=self.avl_bal-amt
+                if check_min>500:
+                    self.avl_bal = check_min
+                    return "Withdraw Successful"
+                else:
+                    return "Insufficient Minimum Balance"
+            else:
+                return "Insufficient amount"
+        else:
+            return "Invalid Amount"
+
+    def avl_balance(self):
+        return self.avl_bal
+
+obj1=BankAccount("Aravinth",7000)
+while True:
+    print("1.Deposit\n2.Withdraw\n3.Available Balance\n4.Exit")
+    try:
+        opt=int(input("Enter the option:"))
+        if opt==1:
+            amt=int(input("Enter the Deposit Amount:"))
+            print(obj1.deposit(amt))
+
+        elif opt==2:
+            amt = int(input("Enter the Withdraw amount:"))
+            print(obj1.withdraw(amt))
+        elif opt==3:
+            print(obj1.avl_balance())
+        elif opt==4:
+            print("Thank You")
+            break
+        else:
+            print("No Options")
+    except ValueError:
+        print("Enter the valid input")
+
+#“Abstraction is the process of hiding implementation details and showing only the essential features of an object.”
 '''
 #Abstraction
 from abc import ABC,abstractmethod
