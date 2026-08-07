@@ -60,7 +60,7 @@ print(obj1.area())
 print(f"Is it Square:{obj1.is_square()}")
 
 '''
-
+'''
 #Bank Account Details
 class BankAccount:
     def __init__(self,acc_holder,avl_bal):
@@ -112,6 +112,8 @@ while True:
             print("No Options")
     except ValueError:
         print("Enter the valid input")
+'''
+
 
 #“Abstraction is the process of hiding implementation details and showing only the essential features of an object.”
 '''
