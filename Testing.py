@@ -52,11 +52,125 @@ print(lis)
 r=0
 count=sum([len(word) for word in name.split()])
 print(count)
-'''
+
 data=[1,2,3,4,5]
 sam=(data for i in data if i==3)
 print(sam)
 
 
+msg="This the id ::: uxwe123. please react"
+print(msg.split(':')) #['This the id ', '', '', ' uxwe123. please react']
+'''
+'''
+for i in range(5):
+    print(i)
+else:
+    print("End")
+'''
+'''
+
+class sample:
+    def __init__(name,name,reg):
+       # self1.n=name Error
+        name.name=name
+        name.r=reg
+
+    def prints(self2):
+        print(f"{self2.n} is {self2.r}")
+
+s=sample('Abinesh',2021)
+s.prints()
+
+'''
 
 
+
+
+#*******************************//LEETCODE//*********************************************
+#TWO SUM
+'''
+
+def find_tar(nums,tar):
+    hash_map={}
+    for index,value in enumerate(nums):
+        val=tar-value
+        if value in hash_map:
+            return [hash_map[value],index]
+        hash_map[val]=index
+    return None
+
+
+lis=[3,3]
+target=6
+print(find_tar(lis,target))
+'''
+
+
+#Contain Duplicate
+'''
+class Solution:
+    def contains(self,nums):
+        num=[]
+        for i in nums:
+            if i in num:
+                return True
+            num.append(i)
+        if len(num)==len(nums):
+            return False
+
+ob=Solution()
+nums = [1,2,3,5,3]
+print(ob.contains(nums))
+'''
+#Valid Anagram
+#Method 1
+'''
+class Solution:
+    def isAnagram(self,stg,tar):
+        count={}
+        for letter in stg:
+            if letter not in count:
+                count[letter]=1
+            else:
+                count[letter]+=1
+        for letter in tar:
+            if letter not in count:
+                return False
+            else:
+                if count[letter]==1:
+                    del count[letter]
+                else:
+                    count[letter]-=1
+        if count=={}:
+            return True
+        else:
+            return False
+
+obj=Solution()
+s1="anagram"
+s2="nagrram"
+print(obj.isAnagram(s1,s2))
+
+'''
+'''
+#METHOD 2
+class Solution:
+    def isAnagram(self,stg,tar):
+        if len(stg)!=len(tar):
+            return False
+        count_stg={}
+        count_tar={}
+        for i in range(len(stg)) :
+            count_stg[stg[i]] = count_stg.get(stg[i],0) + 1
+            count_tar[tar[i]] = count_tar.get(tar[i], 0) + 1
+        for letter in stg:
+            if count_stg[letter]!=count_tar.get(letter,0):
+                return False
+
+        return True
+
+obj=Solution()
+s1="anagram"
+s2="nagaram"
+print(obj.isAnagram(s1,s2))
+'''
